@@ -27,7 +27,7 @@ public class SingletonWithReflection {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Singleton Instance hashCode: " + singletonInstance.hashCode());
-        System.out.println("Reflection Instance hashCode: " + reflectionInstance.hashCode());
+        System.out.println("Singleton Instance : " + singletonInstance);
+        System.out.println("Reflection Instance : " + reflectionInstance);
     }
 }
