@@ -1,11 +1,9 @@
-package com.homeWork.reflection;
+package com.homeWork;
 
 
 
-import com.homeWork.reflection.annotation.AfterMethod;
-import com.homeWork.reflection.annotation.BeforeMethod;
-import com.homeWork.reflection.annotation.Ignore;
-import com.homeWork.reflection.annotation.Test;
+import com.homeWork.annotation.Ignore;
+import com.homeWork.annotation.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -25,25 +23,18 @@ public class EJUnitRunner {
 
         Method[] methods = testClazz.getDeclaredMethods();
 
-        List<Method> beforeMethods = Arrays.stream(methods)
-                .filter(method -> method.isAnnotationPresent(BeforeMethod.class))
-                .collect(toList());
 
         List<Method> testMethods = Arrays.stream(methods)
                 .filter(method -> method.isAnnotationPresent(Test.class))
                 .filter(method -> !method.isAnnotationPresent(Ignore.class))
                 .collect(toList());
 
-        List<Method> afterMethod = Arrays.stream(methods)
-                .filter(method -> method.isAnnotationPresent(AfterMethod.class))
-                .collect(toList());
 
         //run
 
         for (Method method: testMethods) {
             runSingleMethod(instance, method);
         }
-
     }
 
     private static void runSingleMethod(Object instance, Method method) {

@@ -1,4 +1,4 @@
-package com.homeWork.reflection.annotation;
+package com.homeWork.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,11 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Ignore {
-    String value() default "";
+public @interface Test {
+    Class<? extends Throwable> expected() default Test.None.class;
+
+    public static class None extends Throwable {
+        private None() {
+        }
+    }
 }

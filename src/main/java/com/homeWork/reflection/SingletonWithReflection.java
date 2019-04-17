@@ -1,4 +1,5 @@
-package com.homeWork;
+package com.homeWork.reflection;
+
 import java.lang.reflect.Constructor;
 
 class Singleton {
@@ -27,7 +28,11 @@ public class SingletonWithReflection {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Singleton Instance : " + singletonInstance);
-        System.out.println("Reflection Instance : " + reflectionInstance);
+        System.out.println("Singleton Instance hashCode: " + singletonInstance);
+        System.out.println("Reflection Instance hashCode: " + reflectionInstance);
+
+        if(singletonInstance != reflectionInstance){
+            System.out.println("Different instance");
+        }
     }
 }

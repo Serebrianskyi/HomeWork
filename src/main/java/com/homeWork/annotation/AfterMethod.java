@@ -1,4 +1,4 @@
-package com.homeWork.reflection.annotation;
+package com.homeWork.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

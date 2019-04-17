@@ -1,10 +1,10 @@
-package com.homeWork.reflection;
+package com.homeWork;
 
 
-import com.homeWork.reflection.annotation.AfterMethod;
-import com.homeWork.reflection.annotation.BeforeMethod;
-import com.homeWork.reflection.annotation.Ignore;
-import com.homeWork.reflection.annotation.Test;
+import com.homeWork.annotation.BeforeMethod;
+import com.homeWork.annotation.AfterMethod;
+import com.homeWork.annotation.Ignore;
+import com.homeWork.annotation.Test;
 
 public class TestClass {
 
@@ -19,7 +19,7 @@ public class TestClass {
     }
 
     @Ignore
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void shouldBeIgnored() {
         System.out.println("test1 should be ignored");
         }
